@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title><%= name %></title>
+  <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+  <meta name="author" content="<%= obj.author ? author : '' %>">
+  <% if (obj.keywords) { %>
+    <meta name="keywords" content="<% keywords.forEach(function(keyword) { %> <%= keyword %>, <% }) %>">
+  <% } %>
+  <meta name="description" content="text rhythm adjustment in real time">
+  <link href="./css/app.css" rel="stylesheet">
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+  <main id="content">
+    <div class="center clear">
+      <div class="main-content" id="text-rhythm">
+        <%= content %>
+      </div>
+
+    </div>
+  </main>
+  <script src="js/app.min.js"></script>
+  <script src="js/main.js"></script>
+</body>

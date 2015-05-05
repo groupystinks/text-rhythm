@@ -236,3 +236,55 @@ input[type=range] {
   border: 0;
   box-shadow: 0 0 .5px 1px grey;
 }
+
+button {
+  background: #eee;
+  color: #121212;
+  border: 1px solid #ddd;
+  border-radius: 13%;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+button:hover {
+  background: #ddd;
+  color: #111;
+  border: 1px solid #eee;
+}
+
+.zeroclipboard-is-hover {
+  background: #ddd;
+  color: #111;
+  border: 1px solid #eee
+}
+
+.copyBoardButton {
+  display: block;
+}
+
+.copyBoardInput {
+  display: block;
+}
+
+.copyBoardButton div {
+  display: none;
+}
+
+.arrow-up {
+  margin-left: 10px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+}
+
+.copy-info{
+  background: black;
+  color: #eee;
+  font-size: 12px;
+  width: 120px;
+  padding: 3px 3px;
+  border: 1px solid #111;
+  text-align: center;
+}

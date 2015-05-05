@@ -251,9 +251,10 @@ module.exports = React.createClass({
             referenceLinePosition={referenceLinePosition}/>
 
           <LeftPanel
-            paragraph={paragraph}
-            header1={header1}
-            header2={header2}
+            {...paragraph}
+            {...header1}
+            {...header2}
+            {...article}
             baseFontSize={baseFontSize}
             baseLineHeight={baseLineHeight}
             setBaseFontSize={this.setBaseFontSize}

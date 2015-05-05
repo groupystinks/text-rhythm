@@ -3,22 +3,6 @@ var React = require('react');
 
 module.exports = React.createClass({
 
-  generateCSSText: function(cssType, tag) {
-    var html = tag + '{';
-    for (var key in cssType) {
-      if (cssType.hasOwnProperty(key)) {
-        var keyFragment = key.split(/(?=[A-Z])/);
-        keyFragment.forEach(function(goingToLower, key){
-          keyFragment[key] = goingToLower.toLowerCase();
-        });
-        var cssProperty = keyFragment.join('-');
-        html += '<br>' + cssProperty + ': ' + cssType[key] + ';';
-      }
-    }
-    html += '<br>' + '}';
-    return html
-  },
-
   render: function() {
     var styleP = {
         marginTop: this.props.pMarginTop,
@@ -69,20 +53,6 @@ module.exports = React.createClass({
         baseStyle['backgroundSize'] = "100% " + this.props.lineHeight + "em";
         baseStyle['backgroundPosition'] = "left top " + referenceLinePosition + "px";
       }
-
-      var cssRawSytle = {fontSize: '13px !important',
-                          lineHeight: 'rem',
-                          display: 'inline-block',
-                          float: 'right',
-                        };
-      var h1CSSText = this.generateCSSText(styleH1, 'h1');
-      var h2CSSText = this.generateCSSText(styleH2, 'h2');
-      var articleCSSText = this.generateCSSText(styleArticle, 'article');
-      var paragraphCSSText = this.generateCSSText(styleP, 'p');
-      // <pre style={cssRawSytle} dangerouslySetInnerHTML={{__html: h1CSSText}} />
-      // <pre style={cssRawSytle} dangerouslySetInnerHTML={{__html: h2CSSText}} />
-      // <pre style={cssRawSytle} dangerouslySetInnerHTML={{__html: articleCSSText}} />
-      // <pre style={cssRawSytle} dangerouslySetInnerHTML={{__html: paragraphCSSText}} />
 
     return (
       <div className={classStrings} style={baseStyle}>

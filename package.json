@@ -29,7 +29,13 @@
     "React",
     "Design Tool",
     "Text",
-    "Vertical Rhythm"
+    "Vertical Rhythm",
+    "Text Rhythm",
+    "Vertical Rhythm",
+    "Typography",
+    "Typography visualization realtime",
+    "排版",
+    "小說排版"
   ],
   "browserify": {
     "transform": [

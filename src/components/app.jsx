@@ -144,6 +144,8 @@ module.exports = React.createClass({
           h1MarginBottom: value*5/denominator + 'em',
           h1PaddingTop: value*0/denominator + 'em',
           h1PaddingBottom: value*5/denominator + 'em',
+          h1FontSize: 45/24 + 'em',
+          h1LetterSpacing: '.2em',
         };
 
       } else if (key==='h2Rhythm') {
@@ -153,6 +155,8 @@ module.exports = React.createClass({
           h2MarginBottom: value*1/denominator + 'em',
           h2PaddingTop: value*0/denominator + 'em',
           h2PaddingBottom: value*1/denominator + 'em',
+          h2FontSize: 30/24 + 'em',
+          h2LetterSpacing: '.1em',
         };
 
       } else if (key==='articleRhythm') {
@@ -171,6 +175,8 @@ module.exports = React.createClass({
           pMarginBottom: value*.49/denominator + 'em',
           pPaddingTop: value*0/denominator + 'em',
           pPaddingBottom: value*.49/denominator + 'em',
+          pFontSize: 24/24*100 + '%',
+          pLetterSpacing: '.08em',
         };
 
       } else {

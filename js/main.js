@@ -9,22 +9,32 @@ $(window).scroll(function() {
   $stickyLeft.toggleClass("fixed", $(window).scrollTop() > topLeftHeight-20)
 });
 
+navigator.isChrome = (function() {
+  var ua = navigator.userAgent
+  var regexMatch = ua.match(/(chrome)\/?\s*(\d+)/i) || false;
+  return regexMatch
+})()
 
-var client = new ZeroClipboard( document.getElementById("copyRawCSS") );
+if (navigator.isChrome) {
+  var client = new ZeroClipboard( document.getElementById("copyRawCSS") );
 
-client.on( "ready", function(readyEvent) {
-  client.on( "aftercopy", function(event) {
-    // `this` === `client`
-    // `event.target` === the element that was clicked
-    $('.copyBoardButton .copy-info').html('Copied!');
-    $('.copyBoardButton .copy-info').css({'width':'50px'});
+  client.on( "ready", function(readyEvent) {
+    client.on( "aftercopy", function(event) {
+      // `this` === `client`
+      // `event.target` === the element that was clicked
+      $('.copyBoardButton .copy-info').html('Copied!');
+      $('.copyBoardButton .copy-info').css({'width':'40%'});
+    });
   });
-});
 
-$('#copyRawCSS').hover(function(){
-  $('.copyBoardButton .copy-info').css({'width':'120px'});
-  $('.copyBoardButton .copy-info').html('Copy to clipboard');
-  $('.copyBoardButton div').show();
-}, function(){
-  $('.copyBoardButton div').hide();
-});
+  $('#copyRawCSS').hover(function(){
+    $('.copyBoardButton .copy-info').css({'width':'80%'});
+    $('.copyBoardButton .copy-info').html('Copy to clipboard');
+    $('.copyBoardButton div').show();
+  }, function(){
+    $('.copyBoardButton div').hide();
+  });
+} else {
+  var el = document.getElementById('copyRawCSS');
+  el.parentNode.removeChild(el);
+}

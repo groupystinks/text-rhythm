@@ -263,6 +263,7 @@ module.exports = React.createClass({
             {...article}
             baseFontSize={baseFontSize}
             baseLineHeight={baseLineHeight}
+            lineHeight={lineHeight}
             setBaseFontSize={this.setBaseFontSize}
             setLineHeight={this.setLineHeight}
             referenceLine={referenceLine}

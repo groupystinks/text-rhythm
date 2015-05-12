@@ -4,7 +4,7 @@ var React = require('react');
 module.exports = React.createClass({
 
   generateCSSText: function(cssType, tag) {
-    var html = tag + '{';
+    var html = tag + ' {' + '\n';
     for (var key in cssType) {
       if (cssType.hasOwnProperty(key)) {
         var keyFragment = key.split(/(?=[A-Z])/);
@@ -12,11 +12,16 @@ module.exports = React.createClass({
           keyFragment[key] = goingToLower.toLowerCase();
         });
         var cssProperty = keyFragment.join('-');
-        html += cssProperty + ': ' + cssType[key] + ';';
+        html += cssProperty + ': ' + cssType[key] + ';' + '\n';
       }
     }
-    html += '}';
+    html += '}' + '\n';
     return html
+  },
+
+  selectAllText: function() {
+    this.refs.rawCSS.getDOMNode().focus();
+    this.refs.rawCSS.getDOMNode().select();
   },
 
   handleFontChange: function(e){
@@ -73,8 +78,14 @@ module.exports = React.createClass({
         paddingTop: this.props.articlePaddingTop,
         paddingBottom: this.props.articlePaddingBottom,
         fontSize: this.props.articleFontSize,
+      },
+
+      styleHTML = {
+        fontSize: baseFontSize + 'px',
+        lineHeight: this.props.lineHeight + 'em',
       };
 
+    var htmlCSSText = this.generateCSSText(styleHTML, 'html')
     var h1CSSText = this.generateCSSText(styleH1, 'h1');
     var h2CSSText = this.generateCSSText(styleH2, 'h2');
     var articleCSSText = this.generateCSSText(styleArticle, 'article');
@@ -144,11 +155,14 @@ module.exports = React.createClass({
               CSS
             </h2>
             <div className="panel-option cssCopyBoardSytle">
-              <input type="text"
+              <textarea type="text"
                 id="rawCSS"
+                ref="rawCSS"
+                onClick={this.selectAllText}
                 className="copyBoardInput"
-                value={h1CSSText + h2CSSText + articleCSSText +paragraphCSSText}
-                readOnly />
+                value={htmlCSSText + h1CSSText + h2CSSText + articleCSSText +paragraphCSSText}
+                readOnly >
+              </textarea>
               <div className="copyBoardButton">
                 <button id="copyRawCSS"
                   data-clipboard-target="rawCSS"
